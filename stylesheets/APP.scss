@@ -25,3 +25,11 @@ input {
   outline: none;
 }
 
+div.dash {
+  flex-direction: row;
+  display: flex;
+}
+
+div.chart-container {
+  width: 60%
+}

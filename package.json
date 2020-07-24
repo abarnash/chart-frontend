@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --progress",
     "prestart": "npm run build",
+    "start:dev": "webpack-dev-server --mode development --host 0.0.0.0 --hot --open --useLocalIp",
     "start": "opener http://localhost:3000 & httpster -p 3000 -d ./dist"
   },
   "keywords": [
@@ -19,7 +20,6 @@
   "author": "Alex Banks <alex@moonhighway.com> (http://www.moonhighway.com)",
   "license": "MIT",
   "devDependencies": {
-    "opener": "1.4.3",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.0",
@@ -27,10 +27,13 @@
     "babel-preset-stage-0": "6.24.1",
     "css-loader": "0.28.7",
     "node-sass": "4.14.1",
+    "opener": "1.4.3",
     "postcss-loader": "2.0.6",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
-    "webpack": "3.6.0"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "httpster": "1.0.3",

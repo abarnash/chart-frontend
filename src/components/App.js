@@ -5,8 +5,13 @@ const App = () =>
     <div className="app">
         <Menu />
         <NewColor />
-        <Colors />
-        <Charts />
+        <div className="dash">
+          <Colors />
+          <div className="chart-container">
+             <h2>Data Leash</h2>
+             <Charts />
+          </div>
+        </div>
     </div>
 
 export default App
