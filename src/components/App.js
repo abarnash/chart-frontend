@@ -1,14 +1,13 @@
-import { Menu, NewColor, Charts, Colors } from './containers'
+import { Charts, NewScenario, Scenarios } from './containers-v2'
+
 import '../../stylesheets/APP.scss'
 
 const App = () =>
     <div className="app">
-        <Menu />
-        <NewColor />
+        <NewScenario />
         <div className="dash">
-          <Colors />
+          <Scenarios />
           <div className="chart-container">
-             <h2>Data Leash</h2>
              <Charts />
           </div>
         </div>

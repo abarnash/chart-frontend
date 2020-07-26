@@ -1,0 +1,12 @@
+@import "globals";
+
+div.scenario-list {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  flex-wrap: 20%;
+  overflow: scroll;
+  flex-direction: column;
+  width: 13%
+}

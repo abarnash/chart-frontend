@@ -1,27 +1,29 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
-import StarRating from './StarRating'
-import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'
 import '../../../stylesheets/Scenario.scss'
 
 class Scenario extends Component {
 
     render() {
-        const { title, color, rating, timestamp, onRemove, onRate} = this.props
+        const { title, color, numRooms, initialAvail, avgLos, onRemove, onRun} = this.props
         return (
-            <section className="color" style={this.style}>
+            <section className="scenario" style={this.style}>
                 <h1 ref="title">{title}</h1>
-                <button onClick={onRemove}>
+                <button class="trash" onClick={onRemove}>
                     <FaTrash />
                 </button>
-                <div className="color"
+                <div className="scenario"
                      style={{ backgroundScenario: color }}>
                 </div>
-                <TimeAgo timestamp={timestamp} />
-                <div>
-                    <StarRating starsSelected={rating} onRate={onRate}/>
-                </div>
+                <ul>
+                  <li>Rooms: {numRooms}</li>
+                  <li>Initial Availability: {initialAvail}</li>
+                  <li>Average LOS: {avgLos}</li>
+                </ul>
+                <button class="run" onClick={onRun}>
+                    Run
+                </button>
             </section>
         )
     }
@@ -31,15 +33,16 @@ class Scenario extends Component {
 Scenario.propTypes = {
     title: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-    rating: PropTypes.number,
+    numRooms: PropTypes.number,
+    initialAvail: PropTypes.number,
+    avgLos: PropTypes.number,
     onRemove: PropTypes.func,
-    onRate: PropTypes.func
+    onRun: PropTypes.func,
 }
 
 Scenario.defaultProps = {
-    rating: 0,
     onRemove: f=>f,
-    onRate: f=>f
+    onRun: f=>f
 }
 
 export default Scenario

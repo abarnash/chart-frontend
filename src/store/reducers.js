@@ -51,3 +51,45 @@ export const sort = (state = "SORTED_BY_DATE", action) => {
             return state
     }
 }
+
+export const scenario = (state = {}, action) => {
+    switch (action.type) {
+        case C.ADD_SCENARIO:
+            return {
+                id: action.id,
+                title: action.title,
+                color: action.color,
+                numRooms: action.numRooms,
+                initialAvail: action.initialAvail,
+                avgLos: action.avgLos
+            }
+        case C.RUN_SCENARIO:
+            return (state.id !== action.id) ?
+                state :
+                {
+                    ...state
+                }
+        default :
+            return state
+    }
+}
+
+export const scenarios = (state = [], action) => {
+    switch (action.type) {
+        case C.ADD_SCENARIO :
+            return [
+                ...state,
+                scenario({}, action)
+            ]
+        case C.RUN_SCENARIO :
+            return state.map(
+                s => scenario(s, action)
+            )
+        case C.REMOVE_SCENARIO :
+            return state.filter(
+                s => s.id !== action.id
+            )
+        default:
+            return state
+    }
+}

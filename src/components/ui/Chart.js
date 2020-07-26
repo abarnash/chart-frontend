@@ -17,7 +17,7 @@ const Chart = ({data=data}) =>
     <Tooltip />
     <Legend />
     <Line type="monotone" dataKey="numRooms" stroke="#8884d8" activeDot={{ r: 8 }} />
-    <Line type="monotone" dataKey="rating" stroke="#82ca9d" />
+    <Line type="monotone" dataKey="avgLos" stroke="#82ca9d" />
   </LineChart>
 
 export default Chart
