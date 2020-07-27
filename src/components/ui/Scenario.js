@@ -6,7 +6,7 @@ import '../../../stylesheets/Scenario.scss'
 class Scenario extends Component {
 
     render() {
-        const { title, color, numRooms, initialAvail, avgLos, onRemove, onRun} = this.props
+        const { id, title, color, numRooms, initialAvail, avgLos, onRemove, onRun} = this.props
         return (
             <section className="scenario" style={this.style}>
                 <h1 ref="title">{title}</h1>
@@ -21,7 +21,7 @@ class Scenario extends Component {
                   <li>Initial Availability: {initialAvail}</li>
                   <li>Average LOS: {avgLos}</li>
                 </ul>
-                <button class="run" onClick={onRun}>
+                <button class="run" onClick={onRun(numRooms,avgLos)}>
                     Run
                 </button>
             </section>

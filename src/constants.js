@@ -10,6 +10,7 @@ const constants = {
   ADD_SCENARIO: "ADD_SCENARIO",
   RUN_SCENARIO: "RUN_SCENARIO",
   REMOVE_SCENARIO: "REMOVE_SCENARIO",
+  RUN_RESULTS: "RUN_RESULTS"
 }
 
 export default constants

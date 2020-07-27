@@ -1,4 +1,6 @@
+const axios = require('axios')
 import C from '../constants'
+import regeneratorRuntime from "regenerator-runtime";
 
 export const color = (state = {}, action) => {
     switch (action.type) {
@@ -52,7 +54,16 @@ export const sort = (state = "SORTED_BY_DATE", action) => {
     }
 }
 
+const postScenario = async (scenario) => {
+  console.log("Running...", scenario.numRooms)
+  const response = axios.post('http://localhost:5002/building',
+    {numRooms:parseInt(scenario.numRooms),
+     avgLos:parseInt(scenario.avgLos)})
+  return response.data
+}
+
 export const scenario = (state = {}, action) => {
+    console.log("run s")
     switch (action.type) {
         case C.ADD_SCENARIO:
             return {
@@ -67,7 +78,8 @@ export const scenario = (state = {}, action) => {
             return (state.id !== action.id) ?
                 state :
                 {
-                    ...state
+                    ...state,
+                    data: postScenario(state)
                 }
         default :
             return state
@@ -89,6 +101,11 @@ export const scenarios = (state = [], action) => {
             return state.filter(
                 s => s.id !== action.id
             )
+        case C.RUN_RESULTS:
+          return {
+            ...state,
+            results: action.data
+          }
         default:
             return state
     }

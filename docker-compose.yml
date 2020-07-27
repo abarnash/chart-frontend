@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  chart-frontend:
+      container_name: chart-frontend
+      image: chart-frontend:SNAPSHOT
+      ports:
+        - 9000:9000
+      volumes:
+          - .:/app

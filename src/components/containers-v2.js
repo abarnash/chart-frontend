@@ -18,7 +18,7 @@ export const NewScenario = connect(
 export const Charts = connect(
     state =>
         ({
-            data: state.scenarios
+            data: state.results
         }),
     null
 )(Chart)
@@ -30,8 +30,8 @@ export const Scenarios = connect(
         }),
     dispatch =>
         ({
-            onRun(id, rating) {
-                dispatch(runScenario(id, {}))
+            onRun(id, numRooms, avgLos) {
+                dispatch(runScenario(id, {numRooms,avgLos}))
             },
             onRemove(id) {
                 dispatch(removeScenario(id))
