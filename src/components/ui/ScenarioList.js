@@ -9,7 +9,7 @@ const ScenarioList = ({ scenarios=[], onRun=f=>f, onRemove=f=>f }) =>
             scenarios.map(scenario =>
                 <Scenario key={scenario.id}
                     {...scenario}
-                       onRun={(rating) => onRun(scenario.id, rating)}
+                       onRun={(params) => onRun(scenario.id, params)}
                        onRemove={() => onRemove(scenario.id)} />
             )
         }

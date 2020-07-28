@@ -4,7 +4,7 @@ import {
 
 const Chart = ({data=data}) =>
   <LineChart
-      width={500}
+      width={600}
       height={300}
       data={data}
       margin={{
@@ -12,12 +12,12 @@ const Chart = ({data=data}) =>
       }}
     >
     <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="timestamp" />
+    <XAxis dataKey="ts" />
     <YAxis />
     <Tooltip />
     <Legend />
-    <Line type="monotone" dataKey="numRooms" stroke="#8884d8" activeDot={{ r: 8 }} />
-    <Line type="monotone" dataKey="avgLos" stroke="#82ca9d" />
+    <Line type="monotone" dataKey="val" stroke="#8884d8" activeDot={{ r: 8 }} />
+    // <Line type="monotone" dataKey="avgLos" stroke="#82ca9d" />
   </LineChart>
 
 export default Chart

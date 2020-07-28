@@ -10,7 +10,7 @@ class Scenario extends Component {
         return (
             <section className="scenario" style={this.style}>
                 <h1 ref="title">{title}</h1>
-                <button class="trash" onClick={onRemove}>
+                <button class="trash" onClick={()=>onRemove()}>
                     <FaTrash />
                 </button>
                 <div className="scenario"
@@ -21,7 +21,7 @@ class Scenario extends Component {
                   <li>Initial Availability: {initialAvail}</li>
                   <li>Average LOS: {avgLos}</li>
                 </ul>
-                <button class="run" onClick={onRun(numRooms,avgLos)}>
+                <button class="run" onClick={()=>onRun({numRooms,avgLos})}>
                     Run
                 </button>
             </section>

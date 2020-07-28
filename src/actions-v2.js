@@ -26,6 +26,10 @@ export const runResults =
     data
   })
 
+const formatResults = (data) => {
+  return Object.entries(data.occupancy).map(([key,val])=> ({ts:parseInt(key),val}))
+}
+
 export const runScenario = (id, params) => {
   return (dispatch) => {
     console.log('HERE', id, params)
@@ -36,7 +40,8 @@ export const runScenario = (id, params) => {
       .then(({
         data
       }) => {
-        dispatch(runResults(id, data));
+        console.log("Data", formatResults(JSON.parse(data)))
+        dispatch(runResults(id, formatResults(JSON.parse(data))));
       })
   }
 }

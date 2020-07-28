@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from "redux-thunk"
-import { colors, sort, scenarios } from './reducers'
+import { charts, sort, scenarios } from './reducers'
 import stateData from '../../data/initialState'
 
 const logger = store => next => action => {
@@ -22,7 +22,7 @@ const saver = store => next => action => {
 
 const storeFactory = (initialState=stateData) =>
     applyMiddleware(logger, thunk, saver)(createStore)(
-        combineReducers({colors, sort, scenarios}),
+        combineReducers({charts, sort, scenarios}),
         (localStorage['redux-store']) ?
             JSON.parse(localStorage['redux-store']) :
             stateData

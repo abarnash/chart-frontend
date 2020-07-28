@@ -18,7 +18,7 @@ export const NewScenario = connect(
 export const Charts = connect(
     state =>
         ({
-            data: state.results
+            data: [...state.charts.data]
         }),
     null
 )(Chart)
@@ -30,48 +30,11 @@ export const Scenarios = connect(
         }),
     dispatch =>
         ({
-            onRun(id, numRooms, avgLos) {
-                dispatch(runScenario(id, {numRooms,avgLos}))
+            onRun(id, params) {
+                dispatch(runScenario(id, params))
             },
             onRemove(id) {
                 dispatch(removeScenario(id))
             }
         })
 )(ScenarioList)
-
-// export const Menu = connect(
-//     state =>
-//         ({
-//             sort: state.sort
-//         }),
-//     dispatch =>
-//         ({
-//             onSelect(sortBy) {
-//                 dispatch(sortColors(sortBy))
-//             }
-//         })
-// )(SortMenu)
-//
-// export const Charts = connect(
-//     state =>
-//         ({
-//             data: state.colors
-//         }),
-//     null
-// )(Chart)
-//
-// export const Colors = connect(
-//     state =>
-//         ({
-//             colors: [...state.colors].sort(sortFunction(state.sort))
-//         }),
-//     dispatch =>
-//         ({
-//             onRemove(id) {
-//                 dispatch(removeColor(id))
-//             },
-//             onRate(id, rating) {
-//                 dispatch(rateColor(id, rating))
-//             }
-//         })
-// )(ColorList)
