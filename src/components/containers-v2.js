@@ -16,10 +16,7 @@ export const NewScenario = connect(
 )(AddScenarioForm)
 
 export const Charts = connect(
-    state =>
-        ({
-            data: [...state.charts.data]
-        }),
+    state => ({...state.charts}),
     null
 )(Chart)
 
@@ -30,8 +27,8 @@ export const Scenarios = connect(
         }),
     dispatch =>
         ({
-            onRun(id, params) {
-                dispatch(runScenario(id, params))
+            onRun(title, params) {
+                dispatch(runScenario(title, params))
             },
             onRemove(id) {
                 dispatch(removeScenario(id))

@@ -57,12 +57,16 @@ export const scenarios = (state = [], action) => {
 
 export const charts = (state = {}, action) => {
   console.log("ACTION",state, action)
+  let data = state.data || []
   switch (action.type){
     case C.RUN_RESULTS :
-        return {
-          ...state,
-          data: action.data
-        }
+        return state.data.map(i => {
+          let update = {...i}
+          let val = state.data[i.ts]
+          return {
+            ... i,
+          }
+        })
     default:
         return state
   }

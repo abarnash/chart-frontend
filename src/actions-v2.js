@@ -19,20 +19,25 @@ export const removeScenario = id =>
 //   })
 
 export const runResults =
-  (id, data) =>
+  (title, data) =>
   ({
     type: C.RUN_RESULTS,
-    id,
+    title,
     data
   })
 
-const formatResults = (data) => {
-  return Object.entries(data.occupancy).map(([key,val])=> ({ts:parseInt(key),val}))
+const formatResults = data => {
+  return data.occupancy
+  // return Object.entries(data.occupancy).map(([key, val]) =>
+  //   ({
+  //     ts: parseInt(key),
+  //     [title]: val
+  //   }))
 }
 
-export const runScenario = (id, params) => {
+export const runScenario = (title, params) => {
   return (dispatch) => {
-    console.log('HERE', id, params)
+    console.log('HERE', title, params)
     return axios.post('http://localhost:5002/building', {
         numRooms: parseInt(params.numRooms),
         avgLos: parseInt(params.avgLos)
@@ -41,7 +46,7 @@ export const runScenario = (id, params) => {
         data
       }) => {
         console.log("Data", formatResults(JSON.parse(data)))
-        dispatch(runResults(id, formatResults(JSON.parse(data))));
+        dispatch(runResults(title, formatResults(JSON.parse(data))));
       })
   }
 }

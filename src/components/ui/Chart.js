@@ -16,7 +16,19 @@ const Chart = ({data=data}) =>
     <YAxis />
     <Tooltip />
     <Legend />
-    <Line type="monotone" dataKey="val" stroke="#8884d8" activeDot={{ r: 8 }} />
+    {(data && data.length > 0) ?
+      data.map(line=>
+      <Line
+        type="monotone"
+        dataKey="val"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }} />) :
+        <Line
+          type="monotone"
+          dataKey="val"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}/>}
+    // <Line type="monotone" dataKey="val" stroke="#8884d8" activeDot={{ r: 8 }} />
     // <Line type="monotone" dataKey="avgLos" stroke="#82ca9d" />
   </LineChart>
 

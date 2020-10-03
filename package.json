@@ -36,9 +36,12 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "apify": "^0.21.3",
     "axios": "^0.19.2",
     "httpster": "1.0.3",
     "prop-types": "15.6.0",
+    "puppeteer": "^5.2.1",
+    "puppeteer-core": "^5.2.1",
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "react-icons": "2.2.5",
